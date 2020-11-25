@@ -5,14 +5,14 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class TennisCoach implements Coach {
-
+	@Autowired //field injection
 	private FortuneService fortuneService;
 	//setter method
-	@Autowired
-	public void setFortuneService(FortuneService theFortuneService) {
-		System.out.println(">> TennisCoach: inside setFortuneService method");
-		fortuneService = theFortuneService;
-	}
+//	@Autowired
+//	public void setFortuneService(FortuneService theFortuneService) {
+//		System.out.println(">> TennisCoach: inside setFortuneService method");
+//		fortuneService = theFortuneService;
+//	}
     // define a default constructor
 	public TennisCoach() {
 		System.out.println(">> inside default construtor");
