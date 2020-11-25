@@ -1,20 +1,20 @@
 package springdemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
+//import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
-@Scope("prototype")
+//@Scope("prototype")
 public class TennisCoach implements Coach {
-	//@Autowired //field injection
+	@Autowired //field injection
 	private FortuneService fortuneService;
 	//setter method
-	@Autowired
-	public void setFortuneService(FortuneService theFortuneService) {
-		System.out.println(">> TennisCoach: inside setFortuneService method");
-		fortuneService = theFortuneService;
-	}
+//	@Autowired
+//	public void setFortuneService(FortuneService theFortuneService) {
+//		System.out.println(">> TennisCoach: inside setFortuneService method");
+//		fortuneService = theFortuneService;
+//	}
     // define a default constructor
 	public TennisCoach() {
 		System.out.println(">> inside default construtor");
@@ -35,6 +35,14 @@ public class TennisCoach implements Coach {
 	public String getDailyFortune() {
 
 		return fortuneService.getFortune();
+	}
+	//@PostConstruct
+	public void doMyStartupStuff() {
+		System.out.println(">> TennisCoach: inside doMyStartupStuff");
+	}
+	//@PreDestroy
+	public void doMyCleanupStuff() {
+		System.out.println(">> TennisCoach: inside doMyCleanupStuff");
 	}
 
 }
